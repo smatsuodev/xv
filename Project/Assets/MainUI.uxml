@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; position: absolute; left: 0; right: 0; bottom: 0; height: 30px; flex-direction: row;">
-        <ui:Button text="Construction" name="Construction" style="flex-grow: 1; text-overflow: clip;"/>
+        <ui:Button text="Construction" name="Construction" data-source="" data-source-path="" style="flex-grow: 1; text-overflow: clip;"/>
         <ui:Button text="Animation" name="Animation" style="flex-grow: 1;"/>
         <ui:Button text="Saver/Changer" name="SaverChanger" style="flex-grow: 1;"/>
         <ui:Button text="Options" name="Options" style="flex-grow: 1;"/>

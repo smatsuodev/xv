@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -86,11 +87,19 @@ public class CameraController : MonoBehaviour
 
     private void HandleRotation()
     {
+        // Debug.Log();
+
+        // if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     return; 
+        // }
+
         Mouse mouse = Mouse.current;
         if (mouse == null) return;
 
         // クリック中（左ボタンまたは右ボタン）のみ回転を許可
-        if (mouse.leftButton.isPressed || mouse.rightButton.isPressed)
+        // if (mouse.leftButton.isPressed || mouse.rightButton.isPressed)
+        if (mouse.rightButton.isPressed)
         {
             if (Cursor.lockState != CursorLockMode.Locked)
             {
