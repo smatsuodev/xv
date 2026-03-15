@@ -39,9 +39,9 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        // マウスカーソルを非表示にして画面中心にロック
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // 開始時はカーソルを表示（回転はクリック中のみ）
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         targetPosition = transform.position;
         if (currentMode == ViewMode.FirstPerson)
@@ -89,16 +89,34 @@ public class CameraController : MonoBehaviour
         Mouse mouse = Mouse.current;
         if (mouse == null) return;
 
-        Vector2 mouseDelta = mouse.delta.ReadValue();
+        // クリック中（左ボタンまたは右ボタン）のみ回転を許可
+        if (mouse.leftButton.isPressed || mouse.rightButton.isPressed)
+        {
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
 
-        float mouseX = mouseDelta.x * lookSensitivity;
-        float mouseY = mouseDelta.y * lookSensitivity;
+            Vector2 mouseDelta = mouse.delta.ReadValue();
 
-        yaw += mouseX;
-        pitch -= mouseY;
+            float mouseX = mouseDelta.x * lookSensitivity;
+            float mouseY = mouseDelta.y * lookSensitivity;
 
-        // ピッチ（上下の回転）を制限
-        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+            yaw += mouseX;
+            pitch -= mouseY;
+
+            // ピッチ（上下の回転）を制限
+            pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+        }
+        else
+        {
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 
     private void HandleMovement(Keyboard keyboard)
