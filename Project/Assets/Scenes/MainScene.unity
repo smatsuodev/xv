@@ -187,6 +187,8 @@ GameObject:
   - component: {fileID: 259868848}
   - component: {fileID: 259868847}
   - component: {fileID: 259868849}
+  - component: {fileID: 259868850}
+  - component: {fileID: 259868851}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -239,11 +241,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259868846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e472b207fc4267499cd89d5c3d8023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &259868850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259868846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fea188c53e08f03a5b8cc6fc6b896e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+--- !u!114 &259868851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259868846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db11800fdd4b0f675a9e85270b616ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstructionManager
+  itemsToSpawn:
+  - buttonName: Cube
+    prefab: {fileID: 9192217049330524009, guid: 23344184c4757d2498c5791a1fca87b9, type: 3}
+  - buttonName: Sphere
+    prefab: {fileID: 1298336065755542609, guid: 676ec989be87124ed8567f7b63a3b53f, type: 3}
+  defaultSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &742371792
 GameObject:
   m_ObjectHideFlags: 0
