@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
     [Header("Third Person Settings")]
     [Tooltip("ターゲットからのカメラのオフセット位置")]
     public Vector3 thirdPersonOffset = new Vector3(0f, 2f, -5f);
-
+    
     private float pitch = 0f;
     private float yaw = 0f;
 
@@ -178,7 +178,7 @@ public class CameraController : MonoBehaviour
         if (currentMode == ViewMode.FirstPerson)
         {
             // 一人称：ターゲット位置（足元）＋目の高さ
-            transform.position = targetPosition + new Vector3(0f, eyeHeight, 0f);
+            transform.position = new Vector3(targetPosition.x, eyeHeight, targetPosition.z);
         }
         else if (currentMode == ViewMode.ThirdPerson)
         {
