@@ -19,6 +19,7 @@ public class SelectionManager : MonoBehaviour
 
     private void Update() {
         var mouse = Mouse.current;
+        var keyboard = Keyboard.current;
         
         // --- クリックで選択 ---
         if (mouse.leftButton.wasPressedThisFrame)
@@ -60,6 +61,16 @@ public class SelectionManager : MonoBehaviour
         if (mouse.leftButton.wasReleasedThisFrame && selectedObject != null)
         {
             selectedObject.OnDropped();
+        }
+
+        if (keyboard != null && (keyboard.deleteKey.wasPressedThisFrame || keyboard.backspaceKey.wasPressedThisFrame))
+        {
+            if (selectedObject != null)
+            {
+                Destroy(selectedObject.gameObject);
+                selectedObject = null;
+                Debug.Log("選択中のオブジェクトを削除しました");
+            }
         }
     }
 
